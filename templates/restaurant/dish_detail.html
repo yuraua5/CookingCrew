@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <div class="page-header  section-height-100 relative py-7 px-12" style="background-image: url('/static/assets/img/create_update_bg.jpg')">
+    <div class="container pt-4 px-5 border-radius-2xl  col-lg-9 blur shadow-blur">
+      <h2>
+        {{ dish.dish_type }} {{ dish.name }}
+      </h2>
+      <p>
+      <h6>{{ dish.description }}</h6>
+      <h4>price: {{ dish.price }}</h4>
+      <h4>Cooks:</h4>
+      <ul>
+
+      {% for cook in dish.cooks.all %}
+        <li><a href="{% url 'restaurant:cook-detail' pk=cook.id %}">{{ cook.first_name }} {{ cook.last_name }}</a></li>
+
+      {% endfor %}
+    </ul>
+      </p>
+
+    </div>
+  </div>
+{% endblock %}
