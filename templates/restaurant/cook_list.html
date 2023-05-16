@@ -63,7 +63,7 @@
                   <div class="row justify-space-between py-2">
                     <div class=" me-auto">
                       <p class="lead text-dark pt-1 mb-0">
-                        Username: <a href="">{{ cook.username }}</a> |
+                        Username: <a href="{% url 'restaurant:cook-detail' pk=cook.id %}">{{ cook.username }}</a> |
                         {{ cook.first_name }}
                         {{ cook.last_name }} |
                         Years of experience: {{ cook.years_of_experience }}

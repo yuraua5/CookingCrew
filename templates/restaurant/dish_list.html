@@ -65,7 +65,7 @@
                     <div class=" me-auto">
                       <p class="lead text-dark pt-1 mb-0">
                         {{ dish.dish_type }} |
-                        <a href="">{{ dish.name }}</a> |
+                        <a href="{% url 'restaurant:dish-detail' pk=dish.id %}">{{ dish.name }}</a> |
                         Price: {{ dish.price }}
 
                         <a style="float: right"
