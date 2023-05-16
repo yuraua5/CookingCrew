@@ -18,16 +18,16 @@
             <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0" id="navigation">
               <ul class="navbar-nav navbar-nav-hover ms-lg-12 ps-lg-5 w-100">
                 <li class="nav-item dropdown dropdown-hover mx-2">
-                  <a href="/" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center">Dish types</a>
+                  <a href="{% url "restaurant:dish-type-list" %}" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center">Dish types</a>
                 </li>
                 <li class="nav-item dropdown dropdown-hover mx-2">
-                  <a href="/" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center">Dishes</a>
+                  <a href="{% url "restaurant:dish-list" %}" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center">Dishes</a>
                 </li>
                 <li class="nav-item dropdown dropdown-hover mx-2">
-                  <a href="/" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center">Cooks</a>
+                  <a href="{% url "restaurant:cook-list" %}" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center">Cooks</a>
                 </li>
                 <li class="nav-item ms-lg-auto">
-                  <a class="nav-link nav-link-icon me-2" href="{# {% url 'logout' %} #}">
+                  <a class="nav-link nav-link-icon me-2" href=" {% url 'logout' %} ">
                     <i class="fa fa-sign-out me-1"></i>
                     <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout">Logout</p>
                   </a>
