@@ -5,7 +5,13 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from restaurant.forms import DishTypeSearchForm, DishSearchForm, CookSearchForm
+from restaurant.forms import (
+    DishTypeSearchForm,
+    DishSearchForm,
+    CookSearchForm,
+    CookCreationForm,
+    DishForm,
+    DishTypeForm, CookUpdateForm)
 from restaurant.models import DishType, Dish, Cook
 
 
@@ -50,14 +56,14 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
 
 class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
     model = DishType
-    fields = "__all__"
+    form_class = DishTypeForm
     template_name = "restaurant/dish_type_form.html"
     success_url = reverse_lazy("restaurant:dish-type-list")
 
 
 class DishTypeUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = DishType
-    fields = "__all__"
+    form_class = DishTypeForm
     template_name = "restaurant/dish_type_form.html"
     success_url = reverse_lazy("restaurant:dish-type-list")
 
@@ -94,7 +100,7 @@ class DishListView(LoginRequiredMixin, generic.ListView):
 
 class DishCreateView(LoginRequiredMixin, generic.CreateView):
     model = Dish
-    fields = "__all__"
+    form_class = DishForm
     success_url = reverse_lazy("restaurant:dish-list")
 
 
@@ -104,7 +110,7 @@ class DishDetailView(LoginRequiredMixin, generic.DetailView):
 
 class DishUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Dish
-    fields = "__all__"
+    form_class = DishForm
     success_url = reverse_lazy("restaurant:dish-list")
 
 
@@ -139,7 +145,7 @@ class CookListView(LoginRequiredMixin, generic.ListView):
 
 class CookCreateView(LoginRequiredMixin, generic.CreateView):
     model = Cook
-    fields = "__all__"
+    form_class = CookCreationForm
     success_url = reverse_lazy("restaurant:cook-list")
 
 
@@ -150,7 +156,7 @@ class CookDetailView(LoginRequiredMixin, generic.DetailView):
 
 class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Cook
-    fields = "__all__"
+    form_class = CookUpdateForm
     success_url = reverse_lazy("restaurant:cook-list")
 
 
