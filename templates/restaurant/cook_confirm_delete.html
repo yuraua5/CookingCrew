@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <div class="page-header  section-height-100 relative py-7 px-12" style="background-image: url('/static/assets/img/create_update_bg.jpg')">
+    <div class="container pt-4 px-5 border-radius-2xl  col-lg-4 blur shadow-blur">
+      <h2>
+        Delete cook {{ cook.username }}?
+      </h2>
+      <form action="" method="post" novalidate>
+        {% csrf_token %}
+        <input type="submit" value="Yes" class="btn btn-danger">
+        <a href="{% url 'restaurant:cook-list' %}" class="btn btn-secondary">Cancel</a>
+      </form>
+    </div>
+  </div>
+{% endblock %}

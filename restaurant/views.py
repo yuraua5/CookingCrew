@@ -70,7 +70,7 @@ class DishUpdateView(generic.UpdateView):
 
 class DishDeleteView(generic.DeleteView):
     model = Dish
-
+    success_url = reverse_lazy("restaurant:dish-list")
 
 class CookListView(generic.ListView):
     model = Cook
@@ -96,3 +96,4 @@ class CookUpdateView(generic.UpdateView):
 
 class CookDeleteView(generic.DeleteView):
     model = Cook
+    success_url = reverse_lazy("restaurant:cook-list")
