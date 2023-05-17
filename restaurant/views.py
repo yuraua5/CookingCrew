@@ -53,6 +53,9 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
 
         return queryset
 
+class DishTypeDetailView(LoginRequiredMixin, generic.DetailView):
+    model = DishType
+
 
 class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
     model = DishType
@@ -151,7 +154,6 @@ class CookCreateView(LoginRequiredMixin, generic.CreateView):
 
 class CookDetailView(LoginRequiredMixin, generic.DetailView):
     model = Cook
-    template_name = "restaurant/cook_detail.html"
 
 
 class CookUpdateView(LoginRequiredMixin, generic.UpdateView):

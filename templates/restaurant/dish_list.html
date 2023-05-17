@@ -35,7 +35,6 @@
     </div>
   </header>
 <section class="my-5 py-5">
-
     <div class="container mt-sm-5 mt-3">
       <div class="row">
         <div class="col-lg-3">
@@ -69,10 +68,9 @@
                   <div class="row justify-space-between py-2">
                     <div class=" me-auto">
                       <p class="lead text-dark pt-1 mb-0">
-                        {{ dish.dish_type }} |
+                        <a href="{% url 'restaurant:dish-type-detail' pk=dish.dish_type.id %}">{{ dish.dish_type }}</a> |
                         <a href="{% url 'restaurant:dish-detail' pk=dish.id %}">{{ dish.name }}</a> |
                         Price: {{ dish.price }}
-
                         <a style="float: right"
                            type="button"
                            class="btn btn-dark w-auto me-1 mb-0"
@@ -97,6 +95,5 @@
         </div>
       </div>
     </div>
-  </div>
 </section>
 {% endblock %}

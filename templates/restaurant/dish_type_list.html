@@ -35,7 +35,6 @@
     </div>
   </header>
 <section class="my-5 py-5">
-
     <div class="container mt-sm-5 mt-3">
       <div class="row">
         <div class="col-lg-3">
@@ -56,8 +55,8 @@
         </div>
         <div class="col-lg-9">
           <form action="" method="get" class="input-group">
-          {{ search_form|crispy }}
-          <input class="btn btn-dark" type="submit" value="Search">
+            {{ search_form|crispy }}
+            <input class="btn btn-dark" type="submit" value="Search">
           </form>
           {% if dishtype_list %}
             {% for dishtype in dishtype_list %}
@@ -68,7 +67,7 @@
                   <div class="row justify-space-between py-2">
                     <div class=" me-auto">
                       <p class="lead text-dark pt-1 mb-0">
-                        {{ dishtype.name }}
+                        <a href="{% url 'restaurant:dish-type-detail' pk=dishtype.id %}">{{ dishtype.name }}</a>
                         <a style="float: right"
                            type="button"
                            class="btn btn-dark w-auto me-1 mb-0"
@@ -89,17 +88,9 @@
           </div>
           </div>
             {% endfor %}
-
-
           {% endif %}
-
-
-
-
-
         </div>
       </div>
     </div>
-  </div>
 </section>
 {% endblock %}
