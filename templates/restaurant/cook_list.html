@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
 {% block content %}
   <header class="header-2">
     <div class="page-header section-height-50 relative" style="background-image: url('{{ ASSETS_ROOT }}/img/img.jpg')">
@@ -54,6 +55,10 @@
           </div>
         </div>
         <div class="col-lg-9">
+        <form action="" method="get" class="input-group">
+          {{ search_form|crispy }}
+          <input class="btn btn-dark" type="submit" value="Search">
+          </form>
           {% if cook_list %}
             {% for cook in cook_list %}
             <div class="row mt-3">
