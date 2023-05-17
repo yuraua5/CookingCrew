@@ -24,6 +24,7 @@ def index(request):
 class DishTypeListView(generic.ListView):
     model = DishType
     template_name = "restaurant/dish_type_list.html"
+    paginate_by = 5
 
 
 class DishTypeCreateView(generic.CreateView):
@@ -48,6 +49,7 @@ class DishTypeDeleteView(generic.DeleteView):
 
 class DishListView(generic.ListView):
     model = Dish
+    paginate_by = 5
 
 
 class DishCreateView(generic.CreateView):
@@ -72,6 +74,7 @@ class DishDeleteView(generic.DeleteView):
 
 class CookListView(generic.ListView):
     model = Cook
+    paginate_by = 5
 
 
 class CookCreateView(generic.CreateView):
