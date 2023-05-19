@@ -51,8 +51,8 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
             return queryset.filter(
                 name__icontains=form.cleaned_data["name"]
             )
-
         return queryset
+
 
 class DishTypeDetailView(LoginRequiredMixin, generic.DetailView):
     model = DishType
@@ -91,7 +91,7 @@ class DishListView(LoginRequiredMixin, generic.ListView):
         return context
 
     def get_queryset(self):
-        queryset = Dish.objects.all()
+        queryset = Dish.objects.all().select_related("dish_type")
         form = DishSearchForm(self.request.GET)
 
         if form.is_valid():
@@ -171,9 +171,11 @@ class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
 def toggle_assign_to_dish(request, pk):
     cook = Cook.objects.get(id=request.user.id)
     if (
-        Dish.objects.get(id=pk) in cook.dishes.all()
+            Dish.objects.get(id=pk) in cook.dishes.all()
     ):
         cook.dishes.remove(pk)
     else:
         cook.dishes.add(pk)
-    return HttpResponseRedirect(reverse_lazy("restaurant:dish-detail", args=[pk]))
+    return HttpResponseRedirect(
+        reverse_lazy("restaurant:dish-detail", args=[pk])
+    )
