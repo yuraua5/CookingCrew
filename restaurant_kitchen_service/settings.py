@@ -27,9 +27,8 @@ load_dotenv()
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 INTERNAL_IPS = [
     "127.0.0.1",
