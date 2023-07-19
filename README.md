@@ -1,9 +1,9 @@
-# Restaurant Kitchen service
+# CookingCrew
 Django project for managing dish types, dishes, cooks.
 
 ## Check it out!
 
-[Restaurant kitchen service deployed to Render](https://restaurant-kitchen-service-h2jz.onrender.com/)
+[CookingCrew deployed to Render](https://restaurant-kitchen-service-h2jz.onrender.com/)
 ## Installing / Getting started
 Python3 must be already installed
 ```shell
